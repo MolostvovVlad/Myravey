@@ -1,0 +1,61 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body style="background-image: url(bg.jpg);">
+
+<h1>очки: <span class="score">0</span></h1>
+<h1>Соберите 15 муравьев</h1>
+
+
+	<script type="text/javascript">
+		let ochki = 0
+		let score = document.querySelector(".score");
+
+
+	let timer = function(){
+	let newDiv = document.createElement('div');
+	document.body.appendChild(newDiv);
+	newDiv.style.height = "100px";
+	newDiv.style.width = "100px";
+	newDiv.style.backgroundImage = "url(img.svg)";
+	newDiv.style.marginLeft = func(1000) + "px";
+	newDiv.style.marginTop = func(800) + "px";
+	newDiv.style.position = "absolute"
+	newDiv.style.backgroundSize = "100% 100%"
+	newDiv.onclick = function(){
+		newDiv.style.display = "none";
+		ochki = ochki + 1;
+		score.innerHTML = ochki;
+	}
+
+	
+	
+}
+let konets = setInterval(timer,500)
+let proverka = function() {//создание функции
+	clearInterval(konets);
+	if (  ochki >= 15   ) {//условие
+	alert("you win")
+} 
+else{
+	alert("you lose")
+}
+
+}
+
+setTimeout(proverka,10000)
+
+let func = function(arg) { //функция с аргументом
+	let	rand =  Math.random()*arg
+	return rand
+}
+
+
+
+
+
+	</script>
+</body>
+</html>
